@@ -12,7 +12,7 @@ const App = () => {
 
   const renderApp = () => {
     if (user) {
-      return <Chat user/>      
+      return <Chat user={user}/>      
     } else {
       return <Login setUser={setUser}/>
     }
