@@ -23,7 +23,6 @@ const Chat = ({user}) => {
 
     usersRequest.fetchNext().then(
       userList => {
-        /* userList will be the list of User class. */
         console.log('User list received:', userList);
         setFriends(userList);
         setFriendisLoading(false);
@@ -43,7 +42,7 @@ const Chat = ({user}) => {
     // will run when selectedFriend variable value is updated
     // fetch previous messages, remove listener if any
     // create new listener for incoming message
-    
+
     if (selectedFriend) {
       let messagesRequest = new CometChat.MessagesRequestBuilder()
         .setUID(selectedFriend)
@@ -54,6 +53,7 @@ const Chat = ({user}) => {
         messages => {
           setChat(messages);
           setChatIsLoading(false);
+          scrollToBottom();
         },
         error => {
           console.log('Message fetching failed with error:', error);
@@ -103,6 +103,11 @@ const Chat = ({user}) => {
     setChat([]);
     setChatIsLoading(true);
   };
+
+  const scrollToBottom = () => {
+    var node = document.getElementById("ccChatBoxEnd");
+    node.scrollIntoView();
+  }
 
   return (
     <div className='container-fluid'>
@@ -187,6 +192,7 @@ const ChatBox = props => {
             </div>
           </div>
         ))}
+        <div id='ccChatBoxEnd'></div>
       </div>
     );
   }
