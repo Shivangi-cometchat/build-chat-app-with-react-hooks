@@ -15,6 +15,8 @@ const Chat = ({user}) => {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
+    // this useEffect will fetch all users available for chat
+    // only run on mount
     var usersRequest = new CometChat.UsersRequestBuilder()
       .setLimit(limit)
       .build();
@@ -31,18 +33,6 @@ const Chat = ({user}) => {
       }
     );
 
-    CometChat.addMessageListener(
-      MESSAGE_LISTENER_KEY,
-      new CometChat.MessageListener({
-        onTextMessageReceived: message => {
-          console.log('Incoming Message Log', {message});
-          if (selectedFriend === message.sender.uid) {
-            setChat([...chat, message]);
-          }
-        },
-      })
-    );
-
     return () => {
       CometChat.removeMessageListener(MESSAGE_LISTENER_KEY);
       CometChat.logout();
@@ -50,8 +40,12 @@ const Chat = ({user}) => {
   }, []);
 
   useEffect(() => {
+    // will run when selectedFriend variable value is updated
+    // fetch previous messages, remove listener if any
+    // create new listener for incoming message
+    
     if (selectedFriend) {
-      var messagesRequest = new CometChat.MessagesRequestBuilder()
+      let messagesRequest = new CometChat.MessagesRequestBuilder()
         .setUID(selectedFriend)
         .setLimit(limit)
         .build();
@@ -64,6 +58,20 @@ const Chat = ({user}) => {
         error => {
           console.log('Message fetching failed with error:', error);
         }
+      );
+
+      CometChat.removeMessageListener(MESSAGE_LISTENER_KEY);
+
+      CometChat.addMessageListener(
+        MESSAGE_LISTENER_KEY,
+        new CometChat.MessageListener({
+          onTextMessageReceived: message => {
+            console.log('Incoming Message Log', {message});
+            if (selectedFriend === message.sender.uid) {
+              setChat(prevState => [...prevState, message]);
+            }
+          },
+        })
       );
     }
   }, [selectedFriend]);

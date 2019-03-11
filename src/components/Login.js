@@ -16,7 +16,7 @@ const Login = (props) => {
         NotificationManager.success('You are now logged in', 'Login Success');
         console.log("Login Successful:", { User });
         props.setUser(User)
-        // User login success, setUser value and React will render the chatbox.
+        // User login success, setUser value back in the App component.
       },
       error => {
         NotificationManager.error('Please try again', 'Login Failed');

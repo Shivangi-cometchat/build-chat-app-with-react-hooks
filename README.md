@@ -1,68 +1,33 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Chat Widget App With CometChat Pro
 
-## Available Scripts
+This example shows how to build a React chat application using CometChat Pro SDK and React Hooks. 
 
-In the project directory, you can run:
+SCREENSHOTS
 
-### `npm start`
+![Login](screenshot/screenshot_1.png)
+![Chat Interface](screenshot/screenshot_2.png)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Jump straight into the code or read the accompanying step-by-step guide here on our blog.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Technology
+This demo uses:
 
-### `npm test`
+* [CometChat Pro JavaScript SDK](https://github.com/cometchat-pro/javascript-chat-sdk)
+* React
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Running the demo locally
+* Download the repository [here](https://github.com/nsebhastian/react-hooks-cometchat) or by running `git clone https://github.com/nsebhastian/react-hooks-cometchat.git`
+* run `npm install`
+* You need to sign up for CometChat PRO and create your application first
+* Create an ApiKey. You can use auth-only permission for this application
+* Put your AppID and ApiKey into `src/config.js` file
+* run `npm start`
+* A browser will open `localhost:3000`
 
-### `npm run build`
+## Useful links
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* [📚Tutorial](https://prodocs.cometchat.com/docs)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Other examples
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* [ReactJS Chat app](https://github.com/cometchat-pro/javascript-reactjs-chat-app)
