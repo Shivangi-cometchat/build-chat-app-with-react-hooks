@@ -17,7 +17,7 @@ const Chat = ({user}) => {
   useEffect(() => {
     // this useEffect will fetch all users available for chat
     // only run on mount
-    var usersRequest = new CometChat.UsersRequestBuilder()
+    let usersRequest = new CometChat.UsersRequestBuilder()
       .setLimit(limit)
       .build();
 
@@ -79,7 +79,7 @@ const Chat = ({user}) => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    var textMessage = new CometChat.TextMessage(
+    let textMessage = new CometChat.TextMessage(
       selectedFriend,
       message,
       CometChat.MESSAGE_TYPE.TEXT,
@@ -105,9 +105,9 @@ const Chat = ({user}) => {
   };
 
   const scrollToBottom = () => {
-    var node = document.getElementById("ccChatBoxEnd");
+    let node = document.getElementById('ccChatBoxEnd');
     node.scrollIntoView();
-  }
+  };
 
   return (
     <div className='container-fluid'>
@@ -137,7 +137,11 @@ const Chat = ({user}) => {
               <div
                 className='row pt-5 bg-white'
                 style={{height: 530, overflow: 'auto'}}>
-                <ChatBox chat={chat} chatIsLoading={chatIsLoading} user={user}/>
+                <ChatBox
+                  chat={chat}
+                  chatIsLoading={chatIsLoading}
+                  user={user}
+                />
               </div>
               <div className='row bg-light' style={{bottom: 0, width: '100%'}}>
                 <form className='row m-0 p-0 w-100' onSubmit={handleSubmit}>
@@ -192,7 +196,7 @@ const ChatBox = props => {
             </div>
           </div>
         ))}
-        <div id='ccChatBoxEnd'></div>
+        <div id='ccChatBoxEnd' />
       </div>
     );
   }
@@ -216,7 +220,7 @@ const FriendList = props => {
               friend.uid === selectedFriend ? 'active' : ''
             }`}
             onClick={() => props.selectFriend(friend.uid)}>
-            {friend.name}{' '}
+            {friend.name}
           </li>
         ))}
       </ul>
